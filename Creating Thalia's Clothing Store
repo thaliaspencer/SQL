@@ -1,0 +1,26 @@
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, PLACED INTEGER, price INTEGER);
+
+INSERT INTO clothing VALUES (1, "bows", 15, 10, 3.99);
+INSERT INTO clothing VALUES (2, "pink tops", 10, 2, 15.95);
+INSERT INTO clothing VALUES (3, "white dresses",20,15, 45.00);
+INSERT INTO clothing VALUES (4, "mary janes", 5, 1, 65.95);
+INSERT INTO clothing VALUES (5, "thigh high socks", 300, 150, 12.99);
+INSERT INTO clothing VALUES (6, "silk tops", 50, 10, 15.95);
+INSERT INTO clothing VALUES (7, "lace tops", 200, 20, 15.95);
+INSERT INTO clothing VALUES (8, "black boleros", 25, 10, 12.95);
+INSERT INTO clothing VALUES (9, "grey leggings", 150, 100, 40.95);
+INSERT INTO clothing VALUES (10, "houndstooth blazer", 2, 1, 45.95);
+INSERT INTO clothing VALUES (11, "nude tennis skirt", 30, 10, 28.95);
+INSERT INTO clothing VALUES (12, "pink leg warmers",2, 1, 15.99);
+INSERT INTO clothing VALUES (13, "white pants", 500, 275, 60.95);
+INSERT INTO clothing VALUES (14, "chanel espadrilles", 3,1, 1095);
+INSERT INTO clothing VALUES(15, "ysl tote", 1,0, 2950);
+
+SELECT * FROM clothing;
+SELECT name FROM clothing;
+SELECT * FROM clothing ORDER BY quantity;
+SELECT * FROM clothing WHERE price <40;
+SELECT * FROM clothing WHERE price <40 ORDER BY placed;
+SELECT * FROM clothing where quantity <2;
+SELECT * FROM clothing where price >1000.00; 
+SELECT  SUM(quantity) FROM clothing list
