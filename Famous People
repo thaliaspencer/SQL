@@ -1,0 +1,41 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY         KEY, 
+        "name" TEXT,
+        "celebrity type" TEXT, 
+        "age" INTEGER, 
+        'married' TEXT); 
+
+INSERT INTO famous_people VALUES (1, "Justin Timberlake", "singer", "42", 'yes'); 
+INSERT INTO famous_people VALUES (2, "Jessica Biel", "actor", "41", 'yes'); 
+INSERT INTO famous_people VALUES (3, "Fergie", "singer", "48", 'yes'); 
+INSERT INTO famous_people VALUES (4, "Josh Duhamel", "actor","50", 'yes'); 
+INSERT INTO famous_people VALUES (5, "Nicole Kidman", "actor", "55", 'yes'); 
+INSERT INTO famous_people VALUES (6, "Keith Urban", "singer", "55", 'yes'); 
+INSERT INTO famous_people VALUES (7, "Eva Mendez", "actor", "49", 'no');
+INSERT INTO famous_people VALUES (8, "Ryan Gosling", "actor", "42", 'no'); 
+INSERT INTO famous_people VALUES (9, "Vin Diesel", "actor", "55", 'no'); 
+INSERT INTO famous_people VALUES (10, "Paloma Jimenez", "actor", "39", 'no'); 
+
+    CREATE TABLE movie_stars (id INTEGER PRIMARY KEY,     "name" TEXT, 
+    "movie_name" TEXT); 
+
+INSERT INTO movie_stars VALUES (2, "Jessica Biel", "Truck and Larry"); 
+INSERT INTO movie_stars VALUES (4, "Josh Duhamel", "Safe Haven"); 
+INSERT INTO movie_stars VALUES (5, "Nicole Kidman", "Moulin Rouge!"); 
+INSERT INTO movie_stars VALUES (7, "Eva Mendez", "2 Fast 2 Furious"); 
+INSERT INTO movie_stars VALUES (9, "Vin Diesel", "2 Fast 2 Furious");
+
+SELECT * FROM famous_people;
+SELECT * FROM movie_stars;
+
+SELECT "name", "married" FROM famous_people; 
+
+SELECT famous_people.name, movie_stars.movie_name 
+    FROM famous_people
+    LEFT OUTER JOIN movie_stars 
+    ON famous_people.id = movie_stars.id; 
+    
+SELECT famous_people.name, movie_stars.movie_name 
+    FROM famous_people
+    JOIN movie_stars 
+    ON famous_people.id = movie_stars.id 
+    WHERE movie_name = "2 Fast 2 Furious"; 
