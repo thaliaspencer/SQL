@@ -1,0 +1,68 @@
+# For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
+#Creating the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQL. 
+
+#First I determined the avg popularity, danceability, and energy by artist and track.
+SELECT track_name, artist_name, AVG(popularity), AVG(danceability), AVG(energy)
+FROM Spotifydata
+GROUP BY artist_name, track_name;
+
+#Then I determined who the Top 10 artists are by popularity
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10
+
+#I then figured out what artist released the long song according to this dataset
+SELECT track_name, artist_name, duration_ms
+FROM Spotifydata
+ORDER BY duration_ms desc
+LIMIT 1; 
+
+#Next, I wanted to know the average danceability for the 10 most popular songs
+SELECT track_name, artist_name, popularity, AVG(danceability) 
+FROM Spotifydata 
+GROUP BY popularity 
+ORDER BY popularity desc
+LIMIT 10;  
+
+#This listed the top 5 songs containing the most tempo 
+
+SELECT track_name, artist_name, tempo
+FROM Spotifydata
+GROUP BY track_name
+ORDER BY tempo desc
+LIMIT 5; 
+
+#And then I was able to learn all information regarding Doja Cats music on Spotify in 2021.
+
+SELECT *
+FROM Spotifydata
+GROUP BY track_name
+HAVING artist_name = 'Doja Cat';
